@@ -1,12 +1,11 @@
-apiVersion: policies.kyverno.io/v1alpha1
+apiVersion: policies.kyverno.io/v1
 kind: ValidatingPolicy
 metadata:
   name: restrict-secrets-by-name
 status:
   conditionStatus:
     (conditions[?type == 'RBACPermissionsGranted']):
-    - message: Policy is ready for reporting.
-      reason: Succeeded
+    - reason: Succeeded
       status: "True"
     (conditions[?type == 'WebhookConfigured']):
     - message: Webhook configured.
